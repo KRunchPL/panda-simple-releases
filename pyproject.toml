@@ -1,0 +1,49 @@
+[project]
+name = "panda-simple-releases"
+dynamic = ["version"]
+description = "Python application to simplify releasing process and changelog management"
+authors = [{ name = "KRunchPL", email = "krunchfrompoland@gmail.com" }]
+license = "Apache-2.0"
+readme = "README.md"
+requires-python = ">=3.14,<4.0"
+dependencies = [
+    "loguru==0.7.3",
+    "pydantic==2.13.5",
+    "python-dotenv==1.2.3",
+    "typer==0.27.2",
+]
+
+[dependency-groups]
+dev = [
+    "flake8",
+    "mypy",
+    "pydoclint",
+    "pytest",
+    "pytest-cov",
+    "pytest-mock",
+    "ruff",
+]
+
+[project.urls]
+homepage = "https://github.com/KRunchPL/panda-simple-releases"
+repository = "https://github.com/KRunchPL/panda-simple-releases"
+documentation = "https://github.com/KRunchPL/panda-simple-releases"
+
+[project.scripts]
+panda-simple-releases = "panda_simple_releases._app.__main__:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/panda_simple_releases"]
+
+[tool.hatch.version]
+scheme = "semver"
+path = "version.txt"
+pattern = "(?P<version>.*)"
+
+[build-system]
+requires = ["hatchling", "hatch-semver"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+system-certs = true
+add-bounds = "exact"

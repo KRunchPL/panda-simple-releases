@@ -7,19 +7,28 @@ license = "Apache-2.0"
 readme = "README.md"
 requires-python = ">=3.14,<4.0"
 dependencies = [
+    "dulwich==1.2.14",
+    "hatch-semver==2.0.2",
+    "hatchling==1.32.0",
     "loguru==0.7.3",
     "pydantic==2.13.5",
     "python-dotenv==1.2.3",
+    "tomlkit==0.15.1",
     "typer==0.27.2",
 ]
 
 [dependency-groups]
 dev = [
     "flake8",
+    "freezegun",
+    "munch",
+    "munch-stubs",
     "mypy",
+    "panda-pytest-assertions",
     "pydoclint",
     "pytest",
     "pytest-cov",
+    "pytest-loguru",
     "pytest-mock",
     "ruff",
 ]
